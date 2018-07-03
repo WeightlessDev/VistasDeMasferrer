@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119542222-3"></script>
@@ -13,84 +12,93 @@
 </script>
 
 
+<head>
 <title>Vistas de Masferrer</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
-</head>
-<body class="multiple-scenes ">
+<body>
+  
+  <!-- <embed src="https://vistasdemasferrer.bienesraices.me/" style="width:500px; height: 300px;"> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-<div id="pano"></div>
 
-<div id="sceneList">
-  <ul class="scenes">
-    
-      <a href="#" class="scene" data-id="0-sala">
-        <li class="text">Sala</li>
-      </a>
-    
-      <a href="#" class="scene" data-id="1-habitacion-master">
-        <li class="text">Habitacion Master</li>
-      </a>
-    
-      <a href="#" class="scene" data-id="2-habitacion-2">
-        <li class="text">Habitacion 2</li>
-      </a>
-    
-  </ul>
+  <!-- Sets the correct height when the page is ready -->
+  <script type="text/javascript">
+      jQuery(document).ready(function($)
+      {
+        // Get the height of our player container
+        var container_height = $(window).height() - 100;
+        
+        // Set target DIVs height to player container height
+        $(".player").height(container_height);
+      });
+  </script>
+
+  <!-- Sets the correct height when the page changes size -->
+  <script type="text/javascript">    
+    $(window).resize(function()
+    {
+      var container_height = $(window).height() - 100;
+      $(".player").height(container_height);
+    });
+  </script>
+
+
+
+  <!-- Sets the correct height when the device chanhes orientation -->
+  <script type="text/javascript">
+    function doOnOrientationChange() 
+    {
+      switch(window.orientation) 
+      {  
+        case -90 || 90:
+          //alert('landscape');
+          var container_height = $(window).height() - 100;
+          $(".player").height(container_height);
+          break;
+          default:
+
+          //alert('portrait');
+          var container_height = $(window).height() - 100;
+          $(".player").height(container_height);
+          break; 
+      }
+    }  
+    window.addEventListener('orientationchange', doOnOrientationChange);
+  </script>
+
+
+  <!-- Plays the 360 animatin tool -->
+  <div class = "player" style="width: 100vw; position: relative; margin-left: -50vw; left: 50%;">
+    <iframe src="webTool.html" height="100%" width="100%" frameborder="0"></iframe>  
+  </div>
+
+<!-- Information -->
+<div class="row">
+  <div class="column">
+    <a href="http://www.inmuebles.com.sv">
+      <img src="logoinmuebles.png" alt="inmuebles">
+    </a>
+  </div>
+  <div class="column">
+    <a href="http://www.inmuebles.com.sv/vistasmasferrer.html">
+      <img src="vmasferrer.jpg" alt="vmasferrer">
+    </a>
+  </div>
 </div>
 
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
 
-<a href="#" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
-</a>
-
-<a href="#" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
-</a>
-
-<a href="#" id="sceneListToggle">
-  <img class="icon off" src="img/expand.png">
-  <img class="icon on" src="img/collapse.png">
-</a>
-
-<a href="#" id="viewUp" class="viewControlButton viewControlButton-1">
-  <img class="icon" src="img/up.png">
-</a>
-<a href="#" id="viewDown" class="viewControlButton viewControlButton-2">
-  <img class="icon" src="img/down.png">
-</a>
-<a href="#" id="viewLeft" class="viewControlButton viewControlButton-3">
-  <img class="icon" src="img/left.png">
-</a>
-<a href="#" id="viewRight" class="viewControlButton viewControlButton-4">
-  <img class="icon" src="img/right.png">
-</a>
-<a href="#" id="viewIn" class="viewControlButton viewControlButton-5">
-  <img class="icon" src="img/plus.png">
-</a>
-<a href="#" id="viewOut" class="viewControlButton viewControlButton-6">
-  <img class="icon" src="img/minus.png">
-</a>
-
-<script src="vendor/es5-shim.js"></script>
-<script src="vendor/eventShim.js"></script>
-<script src="vendor/classList.js"></script>
-<script src="vendor/requestAnimationFrame.js" ></script>
-<script src="vendor/screenfull.min.js" ></script>
-<script src="vendor/bowser.min.js" ></script>
-<script src="vendor/marzipano.js" ></script>
-
-<script src="data.js"></script>
-<script src="index.js"></script>
+  <div>
+    <p style="font-family: Arial; text-align: justify; color: rgb(40,40,40);"> 
+      - 47 apartamentos de 2 y 3 dormitorios. <br>
+      - Edificio de 7 niveles de apartamentos. <br> 
+      - 1 Niveles de estacionamiento en sótano. <br> 
+      - 2 Amplios Elevadores, Sky Lounge equipado en azotea. <br> 
+      - Lobby y Sala de recepción. Excelente vista Panorámica a San Salvador! </p>
+    <p style="font-family: Arial">Telefono: <a href="tel:24327267">2432-7267</a> </p>
+    <p style="font-family: Arial; font-size: medium;">Correo:<a href="mailto:infoventas@inmuebles.com.sv">infoventas@inmuebles.com.sv</a> </p>
+  </div>
+  
+  
 
 </body>
 </html>
